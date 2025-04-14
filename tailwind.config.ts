@@ -52,6 +52,32 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				spiritual: {
+					50: "#f3f1ff",
+					100: "#ebe5ff",
+					200: "#d9ceff",
+					300: "#bea6ff",
+					400: "#9f75ff",
+					500: "#844dff",
+					600: "#7a2bf7", // Base purple
+					700: "#6b21a8", // Dark purple
+					800: "#581c87", // Deeper purple
+					900: "#4c1d95",
+					950: "#2e1065"
+				},
+				divine: {
+					50: "#eef2ff",
+					100: "#e0e7ff",
+					200: "#c7d2fe",
+					300: "#a5b4fc",
+					400: "#818cf8", // Light blue
+					500: "#6366f1", // Base blue
+					600: "#4f46e5", // Medium blue
+					700: "#4338ca", // Deep blue
+					800: "#3730a3",
+					900: "#312e81",
+					950: "#1e1b4b"
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
