@@ -42,7 +42,7 @@ const HeroSection = () => {
     <section 
       ref={sectionRef} 
       id="hero" 
-      className="pt-32 pb-20 px-6 bg-gradient-to-b from-white to-purple-50 overflow-hidden"
+      className="pt-32 pb-20 px-6 bg-gradient-to-b from-dark to-dark/95 text-white overflow-hidden"
     >
       <div className="container mx-auto">
         {isClient && (
@@ -54,28 +54,28 @@ const HeroSection = () => {
           >
             <div className="w-full md:w-1/2 md:pr-12 mb-12 md:mb-0">
               <motion.div variants={itemVariants}>
-                <Badge variant="spiritual" className="mb-4">Aplicativo Cristão</Badge>
+                <Badge variant="gold" className="mb-4">Aplicativo Cristão</Badge>
               </motion.div>
               
               <motion.h1 
                 variants={itemVariants}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-spiritual-800 via-spiritual-600 to-divine-500 bg-clip-text text-transparent leading-tight"
+                className="font-cinzel text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gold-light leading-tight"
               >
                 Transforme Sua Vida Espiritual com o Aplicativo Perto de Deus
               </motion.h1>
               
               <motion.h2 
                 variants={itemVariants}
-                className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed"
+                className="font-lato text-xl md:text-2xl text-dark-text mb-8 leading-relaxed"
               >
                 O aplicativo que une tecnologia e fé para te aproximar de Deus todos os dias, com orações guiadas, devocionais poderosos, jejum compartilhado e muito mais!
               </motion.h2>
               
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-spiritual-700 transition-all text-lg px-8 py-6">
+                <Button size="lg" className="bg-gold hover:bg-gold-dark text-dark font-cinzel font-medium transition-all text-lg px-8 py-6">
                   Comece sua jornada <ChevronRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button size="lg" variant="outline" className="border-spiritual-400 text-spiritual-700 hover:bg-spiritual-50 transition-all text-lg">
+                <Button size="lg" variant="outline" className="border-gold text-gold hover:bg-dark/50 font-cinzel transition-all text-lg">
                   Ver demonstração
                 </Button>
               </motion.div>
@@ -83,15 +83,15 @@ const HeroSection = () => {
               <motion.div variants={itemVariants} className="mt-8 flex items-center">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-spiritual-100 flex items-center justify-center">
-                      <span className="text-xs font-medium text-spiritual-600">
+                    <div key={i} className="w-8 h-8 rounded-full border-2 border-dark bg-gold/20 flex items-center justify-center">
+                      <span className="text-xs font-medium text-gold">
                         {i === 4 ? '+' : ''}
                       </span>
                     </div>
                   ))}
                 </div>
-                <p className="ml-4 text-sm text-gray-500">
-                  Já são <span className="font-bold">127.854</span> vidas transformadas através do Perto de Deus!
+                <p className="ml-4 text-sm text-dark-text">
+                  Já são <span className="font-bold text-gold">127.854</span> vidas transformadas através do Perto de Deus!
                 </p>
               </motion.div>
             </div>
@@ -100,17 +100,45 @@ const HeroSection = () => {
               variants={itemVariants}
               className="w-full md:w-1/2 rounded-xl overflow-hidden relative"
             >
-              <div className="bg-gradient-to-br from-spiritual-400 to-divine-500 rounded-xl p-[3px]">
-                <div className="bg-white rounded-lg p-2">
+              <div className="bg-gradient-to-br from-gold to-gold-dark rounded-xl p-[3px]">
+                <div className="bg-dark rounded-lg p-2">
                   <img 
-                    src="/placeholder.svg" 
-                    alt="Aplicativo Perto de Deus" 
-                    className="w-full h-auto rounded-lg shadow-xl"
+                    src="/lovable-uploads/a0274bed-c502-47a7-855a-cc893a707598.png" 
+                    alt="Logo Perto de Deus" 
+                    className="w-48 h-auto mx-auto mb-6"
                   />
+                  <div className="bg-dark/80 rounded-lg p-4">
+                    <ul className="flex flex-col space-y-4">
+                      <li className="flex items-center space-x-3 text-gold hover:text-gold-light transition-all">
+                        <span className="inline-block w-6">🏠</span>
+                        <span className="font-cinzel">Início</span>
+                      </li>
+                      <li className="flex items-center space-x-3 text-gold hover:text-gold-light transition-all">
+                        <span className="inline-block w-6">🙏</span>
+                        <span className="font-cinzel">Oração</span>
+                      </li>
+                      <li className="flex items-center space-x-3 text-gold hover:text-gold-light transition-all">
+                        <span className="inline-block w-6">⏱️</span>
+                        <span className="font-cinzel">Jejum</span>
+                      </li>
+                      <li className="flex items-center space-x-3 text-gold hover:text-gold-light transition-all">
+                        <span className="inline-block w-6">📖</span>
+                        <span className="font-cinzel">Devocionais</span>
+                      </li>
+                      <li className="flex items-center space-x-3 text-gold hover:text-gold-light transition-all">
+                        <span className="inline-block w-6">📚</span>
+                        <span className="font-cinzel">Biblioteca</span>
+                      </li>
+                      <li className="flex items-center space-x-3 text-gold hover:text-gold-light transition-all">
+                        <span className="inline-block w-6">📅</span>
+                        <span className="font-cinzel">Agenda</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-spiritual-200 rounded-full filter blur-2xl opacity-70"></div>
-              <div className="absolute -top-6 -left-6 w-32 h-32 bg-divine-200 rounded-full filter blur-2xl opacity-70"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gold/10 rounded-full filter blur-2xl opacity-70"></div>
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-gold/10 rounded-full filter blur-2xl opacity-70"></div>
             </motion.div>
           </motion.div>
         )}

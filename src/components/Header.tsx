@@ -1,16 +1,25 @@
 
-import { Button } from "@/components/ui/button";
-import { ChevronRight, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const menuItems = [
+  { name: "Início", href: "#hero" },
+  { name: "Recursos", href: "#features" },
+  { name: "Demonstração", href: "#screenshots" },
+  { name: "Depoimentos", href: "#testimonials" },
+  { name: "Preços", href: "#pricing" },
+  { name: "FAQ", href: "#faq" },
+];
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -18,91 +27,110 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 ${
-        scrolled ? "bg-white/95 shadow-md backdrop-blur-sm" : "bg-transparent"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-dark/95 backdrop-blur-sm py-4 shadow-lg" : "bg-transparent py-6"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center">
-          <span className="text-2xl font-bold bg-gradient-to-r from-spiritual-700 to-divine-500 bg-clip-text text-transparent">
-            Perto de Deus
-          </span>
-        </Link>
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between">
+          <a href="#" className="flex items-center">
+            <img 
+              src="/lovable-uploads/a0274bed-c502-47a7-855a-cc893a707598.png" 
+              alt="Perto de Deus" 
+              className="h-10 w-auto" 
+            />
+            <span className="font-cinzel text-xl font-bold ml-3 text-gold">Perto de Deus</span>
+          </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/#features" className="text-gray-700 hover:text-primary transition-colors">
-            Recursos
-          </Link>
-          <Link to="/#testimonials" className="text-gray-700 hover:text-primary transition-colors">
-            Depoimentos
-          </Link>
-          <Link to="/#pricing" className="text-gray-700 hover:text-primary transition-colors">
-            Preços
-          </Link>
-          <Link to="/#faq" className="text-gray-700 hover:text-primary transition-colors">
-            FAQ
-          </Link>
-          <Button className="bg-primary hover:bg-spiritual-700 transition-all">
-            Comece Grátis <ChevronRight className="h-4 w-4 ml-1" />
-          </Button>
-        </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-1">
+            {menuItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="font-cinzel px-3 py-2 text-dark-text hover:text-gold transition-colors duration-300"
+              >
+                {item.name}
+              </a>
+            ))}
+            <Button
+              variant="outline"
+              className="ml-4 border-gold text-gold hover:bg-gold hover:text-dark"
+            >
+              Login
+            </Button>
+            <Button
+              className="ml-2 bg-gold text-dark hover:bg-gold-dark"
+            >
+              Registrar
+            </Button>
+          </nav>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-gray-800 focus:outline-none" 
-          onClick={toggleMenu}
-          aria-label="Menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-dark-text hover:text-gold focus:outline-none"
+            onClick={toggleMobileMenu}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <nav className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg p-5 flex flex-col space-y-4">
-          <Link 
-            to="/#features" 
-            className="text-gray-800 hover:text-primary transition-colors py-2 border-b"
-            onClick={toggleMenu}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-dark/95 backdrop-blur-md"
           >
-            Recursos
-          </Link>
-          <Link 
-            to="/#testimonials" 
-            className="text-gray-800 hover:text-primary transition-colors py-2 border-b"
-            onClick={toggleMenu}
-          >
-            Depoimentos
-          </Link>
-          <Link 
-            to="/#pricing" 
-            className="text-gray-800 hover:text-primary transition-colors py-2 border-b"
-            onClick={toggleMenu}
-          >
-            Preços
-          </Link>
-          <Link 
-            to="/#faq" 
-            className="text-gray-800 hover:text-primary transition-colors py-2 border-b"
-            onClick={toggleMenu}
-          >
-            FAQ
-          </Link>
-          <Button className="bg-primary hover:bg-spiritual-700 transition-all w-full">
-            Comece Grátis <ChevronRight className="h-4 w-4 ml-1" />
-          </Button>
-        </nav>
-      )}
+            <nav className="container mx-auto px-6 py-4 flex flex-col space-y-3">
+              {menuItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="font-cinzel px-3 py-2 text-dark-text hover:text-gold transition-colors duration-300"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <div className="flex flex-col space-y-2 pt-2 border-t border-gold/10">
+                <Button
+                  variant="outline"
+                  className="border-gold text-gold hover:bg-gold hover:text-dark"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Login
+                </Button>
+                <Button
+                  className="bg-gold text-dark hover:bg-gold-dark"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Registrar
+                </Button>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

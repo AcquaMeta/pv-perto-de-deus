@@ -77,7 +77,7 @@ const TestimonialsSection = () => {
     <section
       ref={ref}
       id="testimonials"
-      className="py-20 px-6 bg-gradient-to-b from-white to-purple-50"
+      className="py-20 px-6 bg-dark text-white"
     >
       <div className="container mx-auto">
         {isClient && (
@@ -88,20 +88,20 @@ const TestimonialsSection = () => {
           >
             <div className="text-center mb-16">
               <motion.div variants={itemVariants}>
-                <Badge variant="spiritual" className="mb-4">Depoimentos Reais</Badge>
+                <Badge variant="gold" className="mb-4">Depoimentos Reais</Badge>
               </motion.div>
               <motion.h2
                 variants={itemVariants}
-                className="text-3xl md:text-4xl font-bold mb-6"
+                className="font-cinzel text-3xl md:text-4xl font-bold mb-6 text-gold"
               >
                 Vidas{" "}
-                <span className="bg-gradient-to-r from-spiritual-600 to-divine-500 bg-clip-text text-transparent">
+                <span className="text-gold-light">
                   Transformadas
                 </span>
               </motion.h2>
               <motion.p
                 variants={itemVariants}
-                className="text-lg text-gray-600 max-w-2xl mx-auto"
+                className="font-lato text-lg text-dark-text max-w-2xl mx-auto"
               >
                 Descubra como o aplicativo Perto de Deus tem ajudado milhares de pessoas a
                 aprofundarem sua fé e relacionamento com Deus.
@@ -116,18 +116,18 @@ const TestimonialsSection = () => {
                 <motion.div
                   key={testimonial.id}
                   variants={itemVariants}
-                  className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition-all"
+                  className="bg-dark/50 p-8 rounded-xl border border-gold/20 hover:border-gold/40 transition-all"
                 >
                   <div className="flex items-center mb-6">
-                    <Avatar className="h-12 w-12 mr-4 border-2 border-spiritual-100">
+                    <Avatar className="h-12 w-12 mr-4 border-2 border-gold/30">
                       <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
-                      <AvatarFallback className="bg-spiritual-100 text-spiritual-700">
+                      <AvatarFallback className="bg-gold/10 text-gold">
                         {testimonial.name.substring(0, 2)}
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <h3 className="font-bold text-gray-800">{testimonial.name}</h3>
-                      <p className="text-sm text-gray-500">{testimonial.age}</p>
+                      <h3 className="font-cinzel font-bold text-gold">{testimonial.name}</h3>
+                      <p className="text-sm text-dark-text">{testimonial.age}</p>
                     </div>
                   </div>
 
@@ -137,12 +137,12 @@ const TestimonialsSection = () => {
                       .map((_, i) => (
                         <Star
                           key={i}
-                          className="h-5 w-5 text-yellow-400 fill-yellow-400"
+                          className="h-5 w-5 text-gold fill-gold"
                         />
                       ))}
                   </div>
 
-                  <p className="text-gray-600 italic">"{testimonial.text}"</p>
+                  <p className="font-lato text-dark-text italic">"{testimonial.text}"</p>
                 </motion.div>
               ))}
             </motion.div>

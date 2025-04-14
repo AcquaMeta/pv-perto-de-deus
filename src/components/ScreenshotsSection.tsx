@@ -88,7 +88,7 @@ const ScreenshotsSection = () => {
     <section
       ref={ref}
       id="screenshots"
-      className="py-20 px-6 bg-gray-50"
+      className="py-20 px-6 bg-dark/95 text-white"
     >
       <div className="container mx-auto">
         {isClient && (
@@ -100,20 +100,20 @@ const ScreenshotsSection = () => {
           >
             <div className="text-center mb-12">
               <motion.div variants={itemVariants}>
-                <Badge variant="divine" className="mb-4">Demonstração do Produto</Badge>
+                <Badge variant="gold" className="mb-4">Demonstração do Produto</Badge>
               </motion.div>
               <motion.h2
                 variants={itemVariants}
-                className="text-3xl md:text-4xl font-bold mb-6"
+                className="font-cinzel text-3xl md:text-4xl font-bold mb-6 text-gold"
               >
                 Veja o Aplicativo{" "}
-                <span className="bg-gradient-to-r from-spiritual-600 to-divine-500 bg-clip-text text-transparent">
+                <span className="text-gold-light">
                   em Ação
                 </span>
               </motion.h2>
               <motion.p
                 variants={itemVariants}
-                className="text-lg text-gray-600 max-w-2xl mx-auto"
+                className="font-lato text-lg text-dark-text max-w-2xl mx-auto"
               >
                 Conheça as principais funcionalidades que transformarão sua vida espiritual
                 e te aproximarão de Deus todos os dias.
@@ -122,8 +122,8 @@ const ScreenshotsSection = () => {
 
             <motion.div variants={itemVariants} className="relative mt-16">
               {/* Video Placeholder */}
-              <div className="aspect-video max-w-3xl mx-auto bg-gray-200 rounded-xl overflow-hidden shadow-lg mb-12 flex items-center justify-center">
-                <div className="text-gray-500">Vídeo de demonstração do aplicativo</div>
+              <div className="aspect-video max-w-3xl mx-auto bg-dark border border-gold/30 rounded-xl overflow-hidden shadow-lg mb-12 flex items-center justify-center">
+                <div className="text-gold">Vídeo de demonstração do aplicativo</div>
               </div>
 
               {/* Screenshots Carousel */}
@@ -139,17 +139,17 @@ const ScreenshotsSection = () => {
                           key={screenshot.id} 
                           className="min-w-full px-4"
                         >
-                          <div className="bg-white rounded-xl overflow-hidden shadow-lg">
+                          <div className="bg-dark/70 border border-gold/20 rounded-xl overflow-hidden shadow-lg">
                             <div className="p-6">
-                              <div className="aspect-[9/16] max-w-xs mx-auto bg-gray-100 rounded-lg overflow-hidden mb-4">
+                              <div className="aspect-[9/16] max-w-xs mx-auto bg-dark border border-gold/30 rounded-lg overflow-hidden mb-4">
                                 <img 
                                   src={screenshot.image} 
                                   alt={screenshot.title} 
                                   className="w-full h-full object-cover"
                                 />
                               </div>
-                              <h3 className="text-xl font-bold text-center mt-4">{screenshot.title}</h3>
-                              <p className="text-gray-600 text-center">{screenshot.description}</p>
+                              <h3 className="font-cinzel text-xl font-bold text-center mt-4 text-gold">{screenshot.title}</h3>
+                              <p className="font-lato text-dark-text text-center">{screenshot.description}</p>
                             </div>
                           </div>
                         </div>
@@ -161,7 +161,7 @@ const ScreenshotsSection = () => {
                   <Button
                     variant="outline"
                     size="icon"
-                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-dark/80 hover:bg-dark border-gold/30 text-gold"
                     onClick={prevSlide}
                     aria-label="Previous screenshot"
                   >
@@ -170,7 +170,7 @@ const ScreenshotsSection = () => {
                   <Button
                     variant="outline" 
                     size="icon"
-                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-dark/80 hover:bg-dark border-gold/30 text-gold"
                     onClick={nextSlide}
                     aria-label="Next screenshot"
                   >
@@ -184,7 +184,7 @@ const ScreenshotsSection = () => {
                     <button
                       key={i}
                       className={`h-2 rounded-full transition-all ${
-                        i === currentIndex ? "w-8 bg-spiritual-600" : "w-2 bg-gray-300"
+                        i === currentIndex ? "w-8 bg-gold" : "w-2 bg-gold/30"
                       }`}
                       onClick={() => setCurrentIndex(i)}
                       aria-label={`Go to screenshot ${i + 1}`}

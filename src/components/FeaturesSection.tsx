@@ -1,58 +1,65 @@
 
-import { Badge } from "@/components/ui/badge";
-import { BookOpen, Clock, Users, Heart, BookMarked, LineChart } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
+import { Badge } from "@/components/ui/badge";
+import { 
+  Clock, 
+  BookOpen, 
+  Users, 
+  Library, 
+  LineChart, 
+  Heart 
+} from "lucide-react";
 
 const features = [
   {
     id: 1,
-    icon: <BookOpen className="h-8 w-8 text-spiritual-600" />,
     title: "Orações Guiadas",
-    description:
-      "Mais de 100 categorias de orações para cada momento da sua vida, com temporizadores e textos inspiradores.",
+    description: "Mais de 100 categorias de orações para cada momento da sua vida",
+    icon: Heart,
+    color: "text-gold",
   },
   {
     id: 2,
-    icon: <Users className="h-8 w-8 text-spiritual-600" />,
     title: "Jejum em Comunidade",
-    description:
-      "Conecte-se com outros fiéis e fortaleça sua disciplina espiritual juntos através de grupos e desafios.",
+    description: "Conecte-se com outros fiéis e fortaleça sua disciplina espiritual juntos",
+    icon: Clock,
+    color: "text-gold",
   },
   {
     id: 3,
-    icon: <BookMarked className="h-8 w-8 text-spiritual-600" />,
     title: "Devocionais Diários",
-    description:
-      "Conteúdo exclusivo para alimentar sua alma todos os dias, com reflexões profundas e aplicações práticas.",
+    description: "Conteúdo exclusivo para alimentar sua alma todos os dias",
+    icon: BookOpen,
+    color: "text-gold",
   },
   {
     id: 4,
-    icon: <BookOpen className="h-8 w-8 text-spiritual-600" />,
     title: "Biblioteca Sagrada",
-    description:
-      "Acesso à Bíblia, livros cristãos e estudos teológicos em um só lugar para aprofundar sua fé.",
+    description: "Acesso à Bíblia, livros cristãos e estudos teológicos",
+    icon: Library,
+    color: "text-gold",
   },
   {
     id: 5,
-    icon: <Clock className="h-8 w-8 text-spiritual-600" />,
-    title: "Lembretes Personalizados",
-    description:
-      "Configure notificações para nunca esquecer seus momentos de oração e devoção diária.",
+    title: "Acompanhamento Espiritual",
+    description: "Registre seu progresso e veja sua jornada de fé evoluir",
+    icon: LineChart,
+    color: "text-gold",
   },
   {
     id: 6,
-    icon: <LineChart className="h-8 w-8 text-spiritual-600" />,
-    title: "Acompanhamento Espiritual",
-    description:
-      "Registre seu progresso e veja sua jornada de fé evoluir com estatísticas e gráficos motivadores.",
+    title: "Comunidade de Fé",
+    description: "Conecte-se com irmãos em Cristo e cresçam juntos na fé",
+    icon: Users,
+    color: "text-gold",
   },
 ];
 
 const FeaturesSection = () => {
   const [isClient, setIsClient] = useState(false);
-  const { ref: sectionRef, inView } = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -84,9 +91,9 @@ const FeaturesSection = () => {
 
   return (
     <section
-      ref={sectionRef}
+      ref={ref}
       id="features"
-      className="py-20 px-6 bg-white overflow-hidden"
+      className="py-20 px-6 bg-dark text-white"
     >
       <div className="container mx-auto">
         {isClient && (
@@ -94,44 +101,44 @@ const FeaturesSection = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             variants={containerVariants}
-            className="text-center max-w-3xl mx-auto mb-16"
           >
-            <motion.div variants={itemVariants}>
-              <Badge variant="spiritual" className="mb-4">Recursos Exclusivos</Badge>
-            </motion.div>
-            <motion.h2
-              variants={itemVariants}
-              className="text-3xl md:text-4xl font-bold mb-6"
-            >
-              Por que escolher o{" "}
-              <span className="bg-gradient-to-r from-spiritual-600 to-divine-500 bg-clip-text text-transparent">
-                Perto de Deus
-              </span>
-              ?
-            </motion.h2>
-            <motion.p
-              variants={itemVariants}
-              className="text-lg text-gray-600 mb-8"
-            >
-              Nossa plataforma foi projetada para fortalecer seu relacionamento com Deus
-              através de ferramentas poderosas e conteúdo inspirador.
-            </motion.p>
+            <div className="text-center mb-16">
+              <motion.div variants={itemVariants}>
+                <Badge variant="gold" className="mb-4">Por Que Escolher Perto de Deus?</Badge>
+              </motion.div>
+              <motion.h2
+                variants={itemVariants}
+                className="font-cinzel text-3xl md:text-4xl font-bold mb-6 text-gold"
+              >
+                Funcionalidades Inspiradas para sua{" "}
+                <span className="text-gold-light">
+                  Jornada de Fé
+                </span>
+              </motion.h2>
+              <motion.p
+                variants={itemVariants}
+                className="font-lato text-lg text-dark-text max-w-2xl mx-auto"
+              >
+                Descubra como o aplicativo Perto de Deus pode transformar sua vida
+                espiritual com recursos poderosos e intuitivos.
+              </motion.p>
+            </div>
 
             <motion.div
               variants={containerVariants}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
             >
               {features.map((feature) => (
                 <motion.div
                   key={feature.id}
                   variants={itemVariants}
-                  className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition-all group"
+                  className="bg-dark/50 border border-gold/20 p-6 rounded-xl hover:border-gold/50 transition-all"
                 >
-                  <div className="mb-6 inline-block p-3 bg-spiritual-50 rounded-lg group-hover:bg-spiritual-100 transition-colors">
-                    {feature.icon}
+                  <div className="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                    <feature.icon className="h-6 w-6 text-gold" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <h3 className="font-cinzel text-xl font-bold mb-2 text-gold">{feature.title}</h3>
+                  <p className="font-lato text-dark-text">{feature.description}</p>
                 </motion.div>
               ))}
             </motion.div>
