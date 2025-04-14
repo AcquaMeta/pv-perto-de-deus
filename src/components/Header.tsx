@@ -46,7 +46,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center">
             <img 
-              src="/lovable-uploads/a0274bed-c502-47a7-855a-cc893a707598.png" 
+              src="/lovable-uploads/82170de5-fa4b-4db4-8aaf-39cd13cdcb0e.png" 
               alt="Perto de Deus" 
               className="h-10 w-auto" 
             />
