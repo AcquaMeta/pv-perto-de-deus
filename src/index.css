@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -128,6 +127,10 @@
   color: hsl(var(--dark-bg));
 }
 
+.text-dark-bg {
+  color: hsl(var(--dark-bg));
+}
+
 /* Gradiente dourado para elementos especiais */
 .bg-gold-gradient {
   background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-dark)) 100%);
@@ -135,5 +138,5 @@
 
 /* Estilo para botões especiais do Perto de Deus */
 .btn-gold {
-  @apply bg-gold-gradient text-dark-bg font-cinzel font-bold px-6 py-3 rounded-md shadow-md hover:opacity-90 transition-all;
+  @apply bg-gold-gradient text-dark font-cinzel font-bold px-6 py-3 rounded-md shadow-md hover:opacity-90 transition-all;
 }
