@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
@@ -8,27 +9,33 @@ import { Button } from "@/components/ui/button";
 const screenshots = [
   {
     id: 1,
-    title: "Pedidos de Oração",
-    description: "Gerencie seus pedidos e horários de oração",
-    image: "/lovable-uploads/ee819af0-99f3-43ac-81dd-12745b965bc9.png",
+    title: "Oração com Temporizador",
+    description: "Defina tempos para suas orações e receba sugestões personalizadas",
+    image: "/placeholder.svg",
   },
   {
     id: 2,
-    title: "Lista de Orações",
-    description: "Acompanhe o status de suas orações",
-    image: "/lovable-uploads/70a38272-76b1-480e-9578-795ea18b53f6.png",
+    title: "Agenda Espiritual",
+    description: "Organize sua rotina de devocionais e orações com lembretes",
+    image: "/placeholder.svg",
   },
   {
     id: 3,
-    title: "Cronômetro de Oração",
-    description: "Registre seu tempo de oração",
-    image: "/lovable-uploads/172a1c82-ed46-4300-8ce0-b22687b009c9.png",
+    title: "Comunidade de Jejum",
+    description: "Participe de desafios de jejum com outros fiéis",
+    image: "/placeholder.svg",
   },
   {
     id: 4,
-    title: "Novo Pedido",
-    description: "Adicione novos pedidos de oração",
-    image: "/lovable-uploads/6ef1bcc0-f5d7-4a19-8793-efdf29de7cad.png",
+    title: "Biblioteca Premium",
+    description: "Acesse conteúdo exclusivo para crescimento espiritual",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 5,
+    title: "Perfil de Progresso",
+    description: "Acompanhe seu crescimento espiritual com estatísticas",
+    image: "/placeholder.svg",
   },
 ];
 
@@ -56,6 +63,7 @@ const ScreenshotsSection = () => {
     );
   };
 
+  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -98,39 +106,91 @@ const ScreenshotsSection = () => {
                 variants={itemVariants}
                 className="font-cinzel text-3xl md:text-4xl font-bold mb-6 text-gold"
               >
-                Oração com{" "}
+                Veja o Aplicativo{" "}
                 <span className="text-gold-light">
-                  Temporizador
+                  em Ação
                 </span>
               </motion.h2>
               <motion.p
                 variants={itemVariants}
                 className="font-lato text-lg text-dark-text max-w-2xl mx-auto"
               >
-                Um espaço dedicado para suas orações, com ferramentas para gerenciar seus pedidos e acompanhar seu tempo de oração.
+                Conheça as principais funcionalidades que transformarão sua vida espiritual
+                e te aproximarão de Deus todos os dias.
               </motion.p>
             </div>
 
             <motion.div variants={itemVariants} className="relative mt-16">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                {screenshots.map((screenshot) => (
-                  <div 
-                    key={screenshot.id} 
-                    className="bg-dark/70 border border-gold/20 rounded-xl overflow-hidden shadow-lg hover:border-gold/50 transition-all"
-                  >
-                    <div className="p-6">
-                      <div className="aspect-[3/4] rounded-lg overflow-hidden mb-4 border border-gold/30">
-                        <img 
-                          src={screenshot.image} 
-                          alt={screenshot.title} 
-                          className="w-full h-full object-contain bg-dark"
-                        />
-                      </div>
-                      <h3 className="font-cinzel text-xl font-bold text-center mt-4 text-gold">{screenshot.title}</h3>
-                      <p className="font-lato text-dark-text text-center mt-2">{screenshot.description}</p>
+              {/* Video Placeholder */}
+              <div className="aspect-video max-w-3xl mx-auto bg-dark border border-gold/30 rounded-xl overflow-hidden shadow-lg mb-12 flex items-center justify-center">
+                <div className="text-gold">Vídeo de demonstração do aplicativo</div>
+              </div>
+
+              {/* Screenshots Carousel */}
+              <div className="mt-16">
+                <div className="relative">
+                  <div className="flex overflow-hidden mx-auto rounded-xl">
+                    <div 
+                      className="flex transition-transform duration-500 ease-in-out"
+                      style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                    >
+                      {screenshots.map((screenshot) => (
+                        <div 
+                          key={screenshot.id} 
+                          className="min-w-full px-4"
+                        >
+                          <div className="bg-dark/70 border border-gold/20 rounded-xl overflow-hidden shadow-lg">
+                            <div className="p-6">
+                              <div className="aspect-[9/16] max-w-xs mx-auto bg-dark border border-gold/30 rounded-lg overflow-hidden mb-4">
+                                <img 
+                                  src={screenshot.image} 
+                                  alt={screenshot.title} 
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              <h3 className="font-cinzel text-xl font-bold text-center mt-4 text-gold">{screenshot.title}</h3>
+                              <p className="font-lato text-dark-text text-center">{screenshot.description}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                ))}
+
+                  {/* Navigation Buttons */}
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-dark/80 hover:bg-dark border-gold/30 text-gold"
+                    onClick={prevSlide}
+                    aria-label="Previous screenshot"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </Button>
+                  <Button
+                    variant="outline" 
+                    size="icon"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-dark/80 hover:bg-dark border-gold/30 text-gold"
+                    onClick={nextSlide}
+                    aria-label="Next screenshot"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </Button>
+                </div>
+
+                {/* Indicators */}
+                <div className="flex justify-center mt-8 space-x-2">
+                  {screenshots.map((_, i) => (
+                    <button
+                      key={i}
+                      className={`h-2 rounded-full transition-all ${
+                        i === currentIndex ? "w-8 bg-gold" : "w-2 bg-gold/30"
+                      }`}
+                      onClick={() => setCurrentIndex(i)}
+                      aria-label={`Go to screenshot ${i + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
             </motion.div>
           </motion.div>

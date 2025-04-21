@@ -8,44 +8,48 @@ import {
   BookOpen, 
   Users, 
   Library, 
-  LineChart, 
-  Heart 
+  Activity, 
+  Calendar, 
+  User,
+  Settings,
+  FileText,
+  Bell
 } from "lucide-react";
 
 const features = [
   {
     id: 1,
-    title: "Orações Guiadas",
-    description: "Mais de 100 categorias de orações para cada momento da sua vida",
-    icon: Heart,
+    title: "Jornada Espiritual Personalizada",
+    description: "Dashboard personalizado com versículo diário e desafio espiritual",
+    icon: Activity,
     color: "text-gold",
   },
   {
     id: 2,
     title: "Jejum em Comunidade",
-    description: "Conecte-se com outros fiéis e fortaleça sua disciplina espiritual juntos",
+    description: "Acompanhamento de jejum com timer e orientações espirituais",
     icon: Clock,
     color: "text-gold",
   },
   {
     id: 3,
     title: "Devocionais Diários",
-    description: "Conteúdo exclusivo para alimentar sua alma todos os dias",
+    description: "Planos de leitura e conteúdo devocional exclusivo",
     icon: BookOpen,
     color: "text-gold",
   },
   {
     id: 4,
     title: "Biblioteca Sagrada",
-    description: "Acesso à Bíblia, livros cristãos e estudos teológicos",
+    description: "Recursos espirituais, e-books e dicas diárias",
     icon: Library,
     color: "text-gold",
   },
   {
     id: 5,
-    title: "Acompanhamento Espiritual",
-    description: "Registre seu progresso e veja sua jornada de fé evoluir",
-    icon: LineChart,
+    title: "Agenda Espiritual",
+    description: "Acompanhamento de eventos e práticas espirituais",
+    icon: Calendar,
     color: "text-gold",
   },
   {
@@ -142,6 +146,240 @@ const FeaturesSection = () => {
                 </motion.div>
               ))}
             </motion.div>
+
+            {/* Módulos do Aplicativo */}
+            <div className="mt-24">
+              <motion.div variants={itemVariants} className="text-center mb-12">
+                <Badge variant="gold" className="mb-4">Módulos Completos</Badge>
+                <h2 className="font-cinzel text-3xl md:text-4xl font-bold mb-6 text-gold">
+                  Tudo que você precisa para sua <span className="text-gold-light">jornada espiritual</span>
+                </h2>
+                <p className="font-lato text-lg text-dark-text max-w-2xl mx-auto">
+                  O Perto de Deus oferece módulos completos para apoiar cada aspecto do seu crescimento na fé.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                variants={containerVariants}
+                className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+              >
+                {/* Dashboard */}
+                <motion.div variants={itemVariants} className="bg-dark/50 border border-gold/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <Activity className="h-6 w-6 text-gold" />
+                    </div>
+                    <h3 className="font-cinzel text-xl font-bold text-gold">Dashboard</h3>
+                  </div>
+                  <ul className="space-y-2 font-lato text-dark-text pl-4">
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Boas-vindas personalizadas
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Rastreador de progresso espiritual
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Versículo bíblico diário
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Desafio espiritual diário
+                    </li>
+                  </ul>
+                </motion.div>
+
+                {/* Módulo de Oração */}
+                <motion.div variants={itemVariants} className="bg-dark/50 border border-gold/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <FileText className="h-6 w-6 text-gold" />
+                    </div>
+                    <h3 className="font-cinzel text-xl font-bold text-gold">Oração</h3>
+                  </div>
+                  <ul className="space-y-2 font-lato text-dark-text pl-4">
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Gerenciamento de pedidos de oração
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Temporizador de oração
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Registro e acompanhamento
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Filtro por categorias
+                    </li>
+                  </ul>
+                </motion.div>
+
+                {/* Módulo de Jejum */}
+                <motion.div variants={itemVariants} className="bg-dark/50 border border-gold/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <Clock className="h-6 w-6 text-gold" />
+                    </div>
+                    <h3 className="font-cinzel text-xl font-bold text-gold">Jejum</h3>
+                  </div>
+                  <ul className="space-y-2 font-lato text-dark-text pl-4">
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Acompanhamento de jejum
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Temporizador de jejum
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Orientação espiritual
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Histórico de jejuns concluídos
+                    </li>
+                  </ul>
+                </motion.div>
+
+                {/* Módulo Devocionais */}
+                <motion.div variants={itemVariants} className="bg-dark/50 border border-gold/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <BookOpen className="h-6 w-6 text-gold" />
+                    </div>
+                    <h3 className="font-cinzel text-xl font-bold text-gold">Devocionais</h3>
+                  </div>
+                  <ul className="space-y-2 font-lato text-dark-text pl-4">
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Planos de leitura
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Conteúdo devocional diário
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Acompanhamento de progresso
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Novos planos de leitura
+                    </li>
+                  </ul>
+                </motion.div>
+
+                {/* Módulo Biblioteca */}
+                <motion.div variants={itemVariants} className="bg-dark/50 border border-gold/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <Library className="h-6 w-6 text-gold" />
+                    </div>
+                    <h3 className="font-cinzel text-xl font-bold text-gold">Biblioteca</h3>
+                  </div>
+                  <ul className="space-y-2 font-lato text-dark-text pl-4">
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Recursos espirituais
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Dicas diárias
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      E-books
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Filtragem e busca de recursos
+                    </li>
+                  </ul>
+                </motion.div>
+
+                {/* Módulo Agenda */}
+                <motion.div variants={itemVariants} className="bg-dark/50 border border-gold/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <Calendar className="h-6 w-6 text-gold" />
+                    </div>
+                    <h3 className="font-cinzel text-xl font-bold text-gold">Agenda</h3>
+                  </div>
+                  <ul className="space-y-2 font-lato text-dark-text pl-4">
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Acompanhamento de eventos espirituais
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Gerenciamento de tarefas
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Lista de verificação para práticas
+                    </li>
+                  </ul>
+                </motion.div>
+
+                {/* Módulo Perfil */}
+                <motion.div variants={itemVariants} className="bg-dark/50 border border-gold/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <User className="h-6 w-6 text-gold" />
+                    </div>
+                    <h3 className="font-cinzel text-xl font-bold text-gold">Perfil</h3>
+                  </div>
+                  <ul className="space-y-2 font-lato text-dark-text pl-4">
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Avatar bíblico personalizado
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Estatísticas espirituais
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Conquistas e visualização de jornada
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Conexão com amigos
+                    </li>
+                  </ul>
+                </motion.div>
+
+                {/* Módulo Configurações */}
+                <motion.div variants={itemVariants} className="bg-dark/50 border border-gold/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <Settings className="h-6 w-6 text-gold" />
+                    </div>
+                    <h3 className="font-cinzel text-xl font-bold text-gold">Configurações</h3>
+                  </div>
+                  <ul className="space-y-2 font-lato text-dark-text pl-4">
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Personalização de tema
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Configurações de acessibilidade
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
+                      Configurações de segurança
+                    </li>
+                  </ul>
+                </motion.div>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </div>
