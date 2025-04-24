@@ -1,15 +1,17 @@
 
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import ScreenshotsSection from "@/components/ScreenshotsSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import PricingSection from "@/components/PricingSection";
-import FAQSection from "@/components/FAQSection";
-import CallToActionSection from "@/components/CallToActionSection";
-import Footer from "@/components/Footer";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import MethodologySection from "@/components/MethodologySection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import CuriositySection from "@/components/CuriositySection";
+import AudienceSection from "@/components/AudienceSection";
+import PricingSection from "@/components/PricingSection";
+import FAQSection from "@/components/FAQSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const location = useLocation();
@@ -44,16 +46,18 @@ const Index = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-dark">
       <Header />
       <main>
         <HeroSection />
-        <FeaturesSection />
-        <ScreenshotsSection />
+        <AboutSection />
+        <MethodologySection />
         <TestimonialsSection />
+        <BenefitsSection />
+        <CuriositySection />
+        <AudienceSection />
         <PricingSection />
         <FAQSection />
-        <CallToActionSection />
       </main>
       <Footer />
     </div>
